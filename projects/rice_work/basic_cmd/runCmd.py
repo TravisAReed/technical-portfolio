@@ -4,4 +4,4 @@ print('running commands ...')
 
 import subprocess
 
-subprocess.run(f"echo hello",shell=True, check=True) #prints "hello" in the terminal as if the first argument was directly inputted into the terminal
+subprocess.run(f"echo hello_world",shell=True, check=True) #prints "hello_world" in the terminal as if the first argument was directly inputted into the terminal

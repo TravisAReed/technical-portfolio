@@ -31,7 +31,6 @@ startTime = t.time()
 processes = []
 for _ in range(20):
     # processes.append(Process(target=iter100000000))
-    # processes.append(Process(target=t.sleep)) #doesn't work bc no args
     processes.append(Process(target=t.sleep, args=(1,)))
 mul.runProcesses(processes=processes)
 print("Elapsed parallel time:", t.time()-startTime)

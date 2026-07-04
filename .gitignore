@@ -7,10 +7,19 @@ venv/
 .DS_Store
 *.log
 
-# Avoid accidentally publishing real/restricted data
+#Avoid accidentally publishing real/restricted data
 *.xlsx
 *.csv
 *.jsonl
 *.parquet
 *.pkl
 *.db
+
+#too big
+*.cndb
+*.ndb
+*.pdb
+*.tiff
+
+#custom
+hidden*
