@@ -22,4 +22,4 @@ venv/
 *.tiff
 
 #custom
-hidden*
+hidden_back_scripts/
