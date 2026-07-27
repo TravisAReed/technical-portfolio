@@ -48,9 +48,10 @@ def runChatbot(model):
         # keep_alive=-1 #indefinitely
         # keep_alive=5 #default        
         )
-        prevConv += f"Patient Response {ct}: {inp}\nAI Response {ct}: {response.message.content}"
+        prevConv += f"Patient Response {ct}: {inp}\nAI Response {ct}: {response.message.content}\n"
         ct+=1
         inp = input("AI Response:\n"+response.message.content+"\n\nPatient Answer:\n")
+        
         
 
     
