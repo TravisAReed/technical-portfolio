@@ -8,6 +8,10 @@ I wrote this as a Paid Research Intern at UTHealth Houston (The University of Te
 
 The classifier is part of a clinical trial prescreening chatbot with a multi-agent, multi-model architecture. It routes patient responses to specialized agents for eligibility screening. MedGemma models were run and benchmarked with Ollama on a remote Linux server with an NVIDIA A100 GPU. The full chatbot, written in TypeScript and Next.js, is not in this repository.
 
+The chatbot's LLM-based classifier was developed and benchmarked across 884 labeled responses, achieving 98.2% accuracy. This enabled reliable routing that reduced unnecessary downstream model calls by more than 99.9% on routed response paths. Those results come from the full internship system and its internal dataset. Neither is in this repository. The 98.2% accuracy is not a score for the label scheme in `classify.py`.
+
+I submitted a first-author research paper to the AMIA 2027 Amplify Informatics Conference.
+
 Some of the code here is what I actually ran. A good portion has been sanitized to remove proprietary data and details.
 
 <!-- TODO(Travis): Mark which files are as-run versus sanitized. -->
@@ -16,7 +20,7 @@ Some of the code here is what I actually ran. A good portion has been sanitized 
 
 The homepage lists a clinical-trial LLM classifier and a separate Excel annotation utility. Both sets of files live here, in `projects/uth_work`. The Excel code loads a workbook, asks the model to label each non-empty answer cell, and writes a count table. That is the scoring side of the classifier.
 
-The classifier prompt calls the cell text a patient response. The workbook, any patient records, and any scored results are absent. The root `.gitignore` ignores `*.xlsx`.
+The classifier prompt calls the cell text a patient response. The workbook and any patient records are absent. The root `.gitignore` ignores `*.xlsx`.
 
 ## What I built
 
@@ -83,12 +87,12 @@ The three labeling files do not share one label set. `classify.py` can only retu
 
 `to5x5` always paints the same five cells green: table positions `(0,0)`, `(1,0)`, `(2,1)`, `(3,2)`, and `(4,3)`. That pattern matches a layout where the first two source columns share one expected label. It is hardcoded, not computed from the headers.
 
-No accuracy, agreement, or dataset description is stored in this folder. The count table is produced only when the missing workbook is present.
+The 884 labeled responses, the 98.2% accuracy, and the reduction in downstream calls are results of the full chatbot classifier on the internal dataset. They are not stored in this folder, and they are not a measurement of `classify.py`, `useClassify.py`, or `identifyClassify.py`. The count table is produced only when the missing workbook is present.
 
 `identifyClassify.py` interpolates the typed identifier into shell commands (`mkdir` and `cp`). The copy to `~/port` runs on every successful pass.
 
 `memoryChatbot.py` comments say each response is stateless. The code still prepends a growing transcript to the next user message, as one message, not as separate chat roles.
 
-<!-- TODO(Travis): What was the annotation task (the numeric buckets versus valid/illogical/clarify/skip)? Which file matches the version you want to show? Was `sharedAnnotationsQA.xlsx` real, synthetic, or left out on purpose? What should a recruiter be told about results? -->
+<!-- TODO(Travis): What was the annotation task (the numeric buckets versus valid/illogical/clarify/skip)? Which file matches the version you want to show? Was `sharedAnnotationsQA.xlsx` real, synthetic, or left out on purpose? -->
 
-**[TODO: Fill in the task definition, which label set is current, what the spreadsheet was, and any result you want stated.]**
+**[TODO: Which label set is current, which file matches the version you want to show, and what the spreadsheet was.]**
