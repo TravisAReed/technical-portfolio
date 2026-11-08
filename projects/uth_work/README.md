@@ -10,7 +10,7 @@ The classifier is part of a clinical trial prescreening chatbot with a multi-age
 
 The chatbot's LLM-based classifier was developed and benchmarked across 884 labeled responses, achieving 98.2% accuracy. This enabled reliable routing that reduced unnecessary downstream model calls by more than 99.9% on routed response paths. Those results come from the full internship system and its internal dataset. Neither is in this repository. The 98.2% accuracy is not a score for the label scheme in `classify.py`.
 
-I submitted a first-author research paper to the AMIA 2027 Amplify Informatics Conference.
+I submitted a research paper as first author to the AMIA 2027 Amplify Informatics Conference (currently under review).
 
 Some of the code here is what I actually ran. A good portion has been sanitized to remove proprietary data and details.
 
