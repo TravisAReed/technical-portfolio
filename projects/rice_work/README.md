@@ -98,7 +98,7 @@ Run that one from `local_parallel/` so `import multiprocess` loads the sibling f
 | `wsl_copies/back_scripts/BackupHiCplotter.py` | Older Hi-C plotter. On execution, calls `plotHiCs` for every frame with subtraction. |
 | `wsl_copies/back_scripts/HiCAnalysis.py` | Partial copy of the Hi-C helpers (`findMaxNotOnDiag`, a printed window, probability-versus-distance, `plotHiC`). No import lines. |
 | `wsl_copies/back_scripts/newHiCout.py` | Loads trajectories, writes a bead-coordinate window to `boxVals.txt`, builds Hi-C matrices for frames 0 and 15, and writes an 11-row comparison against `av0.txt`, `av15.txt`, and `difflog.txt` into `CompareHiCAvgs.txt`. |
-| `wsl_copies/back_scripts/RgFuncs.py` | Averages radius of gyration from `statistics` files and plots it. On execution, overlays four split ids from cluster CSV paths. |
+| `wsl_copies/back_scripts/RgFuncs.py` | Averages radius of gyration from `statistics` files and plots it. On execution, overlays the four break-point ids from each run's average CSV. |
 | `wsl_copies/back_scripts/sepFuncs.py` | Writes endpoint-separation CSVs and plots averages. On execution, overlays four split ids from `SepAvgs.csv`. |
 | `wsl_copies/back_scripts/center_of_mass.py` | Loads trajectories and plots the mean center-of-mass distance between the two chains. Runs that plot on execution. |
 | `wsl_copies/back_scripts/locStats.py` | Copies `sim<n>/statistics.txt` into `locStats<id>/`. On execution, copies 100 replicas. |
