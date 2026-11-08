@@ -1,18 +1,18 @@
-# Chromatin trajectory analysis, plus small local helpers
+# Chromatin simulation of radiation-induced breaks
 
-Python scripts that load OpenMiChroM chromosome trajectories, build Hi-C contact maps, and plot radius of gyration and chain-separation summaries. Two smaller folders hold generic shell and process-pool helpers.
-
-<!-- TODO(Travis): Lab or group, your role, the scientific question, and which of these scripts you wrote. The homepage calls this "Chromatin Simulation Research." This folder is analysis code. The simulator, trajectory files, and the chromosome-splitting scripts this code calls are not here. -->
-
-**[TODO: Name the lab, your role, and the question these plots were for. Add any finding you want public — this folder does not state results.]**
+Python for OpenMiChroM simulations of how chromosome structure responds to low-dose radiation, plus post-processing that builds Hi-C contact maps, metrics, and plots. Two smaller folders hold generic shell and process-pool helpers.
 
 ## Context
 
-The homepage's chromatin project points at `projects/rice_work`. The analysis code is under `wsl_copies/`. It reads multi-replica trajectories of two chains (`nucleus0_<sim>.cndb` and `nucleus1_<sim>.cndb`), with a run id taken from `masterVars.csv` or a `--split` argument. Plot titles and one collapsed-trajectory filename refer to chromosome 10. Several scripts compare four split indexes hardcoded in the plotting loops: 1356, 1722, 2012, and 2363.
+I did this as a Research Intern at Rice University, Center for Theoretical Biological Physics, Jun 2025 to Aug 2025.
+
+The project simulated chromosome structural response to low-dose radiation (radiation-induced breaks) using OpenMiChroM on Rice's NOTS HPC cluster. Multiple simulation jobs ran via Slurm, and scripts were further parallelized with Python multiprocessing. Post-processing was automated to generate Hi-C contact maps, quantitative metrics, and visualizations. Results were compared against literature baselines. I presented the work as a research poster at the Center for Theoretical Biological Physics Undergraduate Research Day.
+
+The homepage's chromatin project points at `projects/rice_work`. The analysis code is under `wsl_copies/`. It reads multi-replica trajectories of two chains (`nucleus0_<sim>.cndb` and `nucleus1_<sim>.cndb`), with a run id taken from `masterVars.csv` or a `--split` argument. Plot titles and one collapsed-trajectory filename refer to chromosome 10. Several scripts compare four split indexes hardcoded in the plotting loops: 1356, 1722, 2012, and 2363. Those indexes are break points.
 
 `basic_cmd/` and `local_parallel/` are a shell snippet, two git wrappers, and a local process pool. A comment in `gitPush.py` mentions a poker-bot commit message.
 
-The analysis scripts choose a data directory from the machine they run on: one layout when the script path starts with `/home`, and another otherwise. This page describes the files they expect and omits the machine-specific paths.
+The analysis scripts choose a data directory from the machine they run on, with one layout on a workstation and another on the cluster. This page describes the files they expect and omits machine-specific paths.
 
 ## What I built
 
@@ -110,9 +110,9 @@ Run that one from `local_parallel/` so `import multiprocess` loads the sibling f
 
 ## Notes / limitations
 
-Nothing in this folder states a scientific result, a parameter sweep outcome, or a dataset citation. Plot titles, split indexes, and the chromosome-10 filename are what the scripts contain. They are not a results section.
+The comparison to literature baselines and the poster are noted above. This folder does not include the poster, a literature citation, or a measured outcome. Plot titles, the four break-point indexes, and the chromosome-10 filename are what the scripts contain.
 
-The analysis scripts are tied to one directory layout: per-replica `sim<n>/` folders, a `locTrajs<id>/` copy, a `locStats<id>/` copy, and output under `Figs<id>/`. Several files assume 1000 frames and, on the cluster branch, 100 replicas (3 when the script path starts with `/home`).
+The analysis scripts are tied to one directory layout: per-replica `sim<n>/` folders, a `locTrajs<id>/` copy, a `locStats<id>/` copy, and output under `Figs<id>/`. Several files assume 1000 frames. Some use 100 replicas on the cluster and 3 replicas in the workstation layout.
 
 `findXYZ` returns `traj.cndb[frame][bead - 1]`. Endpoint code calls it with `-1` for chain 0 and `1` for chain 1. The comment at the call says those are the last bead and the first bead.
 
@@ -122,6 +122,6 @@ The analysis scripts are tied to one directory layout: per-replica `sim<n>/` fol
 
 `CompareHiCAvgs.txt` and `boxVals.txt` are raw numeric output sitting next to the scripts. The root gitignore already excludes `*.csv`, `*.cndb`, `*.ndb`, `*.pdb`, and `*.tiff`, which is why the inputs these scripts expect are absent while these two text dumps are present.
 
-<!-- TODO(Travis): Which scripts should a recruiter treat as the project, and which are scratch? What do the four split indexes mean? Is chromosome 10 the system you want named? What was your part versus the lab's existing OpenMiChroM pipeline? Should the two text dumps stay in the public repo? -->
+<!-- TODO(Travis): Which scripts should a recruiter treat as the project, and which are scratch? The four split indexes are break points — what is each index specifically? Is chromosome 10 the system you want named? What was your part versus the lab's existing OpenMiChroM pipeline? Should the two text dumps stay in the public repo? Any specific finding you want quoted is still open. -->
 
-**[TODO: Answer the questions in the comment above before sending this page to a recruiter.]**
+**[TODO: What is each break-point index? Which scripts are the project versus scratch? Is chromosome 10 the system to name? What was your part versus the lab pipeline? Should the two text dumps stay public? Any finding to quote?]**

@@ -1,12 +1,14 @@
 # B4G Hold'em poker bots
 
-Python bots for the Build4Good 2025 pokerbot challenge, played by the match engine in this folder. The event rules are in [README.md](README.md) and are unchanged.
+Python bots for the Poker Bot Challenge at the Build4Good 2025 Hackathon, played by the match engine in this folder. This entry placed 3rd. The event rules are in [README.md](README.md) and are unchanged.
 
-<!-- TODO(Travis): Your role versus anyone else who wrote code in this folder, whether this was a team entry, and any match or bracket outcome you want stated. A comment in `winning_skeleton/player.py` marks one block as "my work" and attributes the hand-strength function to someone else. This page does not assign credit past those comments. The folder name `winning_skeleton` is only a directory name. -->
+<!-- TODO(Travis): Your role versus anyone else who wrote code in this folder, and whether this was a team entry. A comment in `winning_skeleton/player.py` marks one block as "my work" and attributes the hand-strength function to someone else. This page does not assign credit past those comments. The folder name `winning_skeleton` is only a directory name. -->
 
-**[TODO: Say what you wrote, who else should be credited, and any result you want listed. None of that is established by the code alone.]**
+**[TODO: Say what you wrote and who else should be credited. The 3rd-place result is listed; the credit split is still open.]**
 
 ## Context
+
+3rd Place, Poker Bot Challenge, Build4Good 2025 Hackathon.
 
 [README.md](README.md) is the Build4Good 2025 handout. It describes B4G Hold'em: three hole cards, a betting round, a flop of two community cards, another betting round, then the last two community cards and a final betting round. Showdown uses Texas Hold'em hand rankings. A match is 5,000 hands. Each hand starts both players at 500 chips, with blinds of 5 and 10, and the per-hand stack change updates a bankroll that starts at 0. Each bot has 180 seconds for the whole match.
 
@@ -105,7 +107,7 @@ Each bot folder also has `commands.json` with `"run": ["python", "player.py"]`. 
 
 ## Notes / limitations
 
-No match log, bankroll, or bracket result is checked in. `.gitignore` ignores `*.txt`, which covers `gamelog.txt` and the `BotHand.txt` debug file the equity bot writes on every decision.
+No match log or bankroll is checked in. The 3rd-place result above is not stored as a log in this folder. `.gitignore` ignores `*.txt`, which covers `gamelog.txt` and the `BotHand.txt` debug file the equity bot writes on every decision.
 
 The stock comments inside `python_skeleton`, `all_in_bot`, `allin_skeleton`, and `winning_skeleton` still describe streets as 0, 3, 4, or 5. In this engine, `proceed_street` adds 2 and stops at 4. `player_chatbot` comments say 0, 2, or 4, which matches the street counter. Board length still comes from `deck[:street]`.
 
@@ -119,6 +121,6 @@ The equity function's active loop uses 10×10 samples. A larger 100-sample loop 
 
 The handout's GPT prompt text inside `player_chatbot/player.py` describes a 400-chip stack and blinds of 1 and 2. `config.py` and the handout rules use 500 chips and blinds of 5 and 10. That prompt is used only if `USE_GPT` is set to true.
 
-<!-- TODO(Travis): Which `player.py` should be presented as the bot? Was the equity function yours, a teammate's, or shared? Do you want the terminal `player_chatbot` and the duplicate `competing_skeleton copy` described as your work? Is there a match result, team name, or date you want added? -->
+<!-- TODO(Travis): Which `player.py` should be presented as the bot? Was the equity function yours, a teammate's, or shared? Do you want the terminal `player_chatbot` and the duplicate `competing_skeleton copy` described as your work? Is there a team name or a more specific date you want added? -->
 
-**[TODO: Answer the credit and results questions above. Do not leave the "my work" comment as the public account of who wrote what.]**
+**[TODO: Which `player.py` is the featured bot, and how should credit be worded? Do not leave the "my work" comment as the public account of who wrote what.]**

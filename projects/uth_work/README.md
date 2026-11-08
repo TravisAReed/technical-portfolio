@@ -1,12 +1,18 @@
-# Local LLM labeling and Excel annotation checks
+# Clinical trial response classifier and Excel scoring
 
-Scripts that call a local Ollama model, force a short JSON label, and (in two drivers) score those labels against columns of an annotated workbook.
-
-<!-- TODO(Travis): Confirm the setting, organization, your role, and whether this folder is original work, a sanitized reimplementation, or a mix. The portfolio homepage lists "Clinical Trial LLM Classifier" and "Excel Annotation Automation" separately; this folder contains both, and the Excel scripts are the scoring side of the classifier. -->
-
-**[TODO: Confirm the organization, your role, and whether this code is original, sanitized, or a mix. Add any result you want a recruiter to see — none is in this folder.]**
+Scripts that ask a MedGemma model, through Ollama, to force a short JSON label, and (in two drivers) score those labels against columns of an annotated workbook.
 
 ## Context
+
+I wrote this as a Paid Research Intern at UTHealth Houston (The University of Texas Health Science Center at Houston), Jun 2026 to Aug 2026.
+
+The classifier is part of a clinical trial prescreening chatbot with a multi-agent, multi-model architecture. It routes patient responses to specialized agents for eligibility screening. MedGemma models were run and benchmarked with Ollama on a remote Linux server with an NVIDIA A100 GPU. The full chatbot, written in TypeScript and Next.js, is not in this repository.
+
+Some of the code here is what I actually ran. A good portion has been sanitized to remove proprietary data and details.
+
+<!-- TODO(Travis): Mark which files are as-run versus sanitized. -->
+
+**[TODO: Mark which files are as-run versus sanitized.]**
 
 The homepage lists a clinical-trial LLM classifier and a separate Excel annotation utility. Both sets of files live here, in `projects/uth_work`. The Excel code loads a workbook, asks the model to label each non-empty answer cell, and writes a count table. That is the scoring side of the classifier.
 
@@ -42,7 +48,7 @@ Model tags hardcoded in the files: `medgemma:27b` in `classify.py`, and `medgemm
 
 ## How to run
 
-These entry points run only when a local Ollama server is up and the named model is already pulled. `classify.py` defines `classify_response` and does not call it (the sample calls at the bottom are commented out).
+These entry points run only when an Ollama server is up and the named model is already pulled. In the internship the models were served on the remote A100 machine described above. These scripts call the Ollama client with a model name and do not set a host. `classify.py` defines `classify_response` and does not call it (the sample calls at the bottom are commented out).
 
 ```bash
 pip install ollama pydantic openpyxl
@@ -83,6 +89,6 @@ No accuracy, agreement, or dataset description is stored in this folder. The cou
 
 `memoryChatbot.py` comments say each response is stateless. The code still prepends a growing transcript to the next user message, as one message, not as separate chat roles.
 
-<!-- TODO(Travis): What was the annotation task (the numeric buckets versus valid/illogical/clarify/skip)? Which file matches the version you want to show? Was `sharedAnnotationsQA.xlsx` real, synthetic, or left out on purpose? What should a recruiter be told about results, the organization, and your role? -->
+<!-- TODO(Travis): What was the annotation task (the numeric buckets versus valid/illogical/clarify/skip)? Which file matches the version you want to show? Was `sharedAnnotationsQA.xlsx` real, synthetic, or left out on purpose? What should a recruiter be told about results? -->
 
 **[TODO: Fill in the task definition, which label set is current, what the spreadsheet was, and any result you want stated.]**
