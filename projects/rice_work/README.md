@@ -8,7 +8,7 @@ I did this as a Research Intern at Rice University, Center for Theoretical Biolo
 
 The project simulated chromosome structural response to low-dose radiation (radiation-induced breaks) using OpenMiChroM on Rice's NOTS HPC cluster. Multiple simulation jobs ran via Slurm, and scripts were further parallelized with Python multiprocessing. Post-processing was automated to generate Hi-C contact maps, quantitative metrics, and visualizations. Results were compared against literature baselines. I presented the work as a research poster at the Center for Theoretical Biological Physics Undergraduate Research Day.
 
-The homepage's chromatin project points at `projects/rice_work`. The analysis code is under `wsl_copies/`. It reads multi-replica trajectories of two chains (`nucleus0_<sim>.cndb` and `nucleus1_<sim>.cndb`), with a run id taken from `masterVars.csv` or a `--split` argument. Plot titles and one collapsed-trajectory filename refer to chromosome 10. Several scripts compare four split indexes hardcoded in the plotting loops: 1356, 1722, 2012, and 2363. Those indexes are break points.
+The homepage's chromatin project points at `projects/rice_work`. The analysis code is under `wsl_copies/`. It reads multi-replica trajectories of two chains (`nucleus0_<sim>.cndb` and `nucleus1_<sim>.cndb`), with a run id taken from `masterVars.csv` or a `--split` argument. Plot titles and one collapsed-trajectory filename refer to chromosome 10. Several scripts compare four split indexes hardcoded in the plotting loops: 1356, 1722, 2012, and 2363. These are bead positions along the simulated chromosome chain where the radiation-induced breaks were placed.
 
 `basic_cmd/` and `local_parallel/` are a shell snippet, two git wrappers, and a local process pool. A comment in `gitPush.py` mentions a poker-bot commit message.
 
@@ -122,6 +122,6 @@ The analysis scripts are tied to one directory layout: per-replica `sim<n>/` fol
 
 `CompareHiCAvgs.txt` and `boxVals.txt` are raw numeric output sitting next to the scripts. The root gitignore already excludes `*.csv`, `*.cndb`, `*.ndb`, `*.pdb`, and `*.tiff`, which is why the inputs these scripts expect are absent while these two text dumps are present.
 
-<!-- TODO(Travis): Which scripts should a recruiter treat as the project, and which are scratch? The four split indexes are break points — what is each index specifically? Is chromosome 10 the system you want named? What was your part versus the lab's existing OpenMiChroM pipeline? Should the two text dumps stay in the public repo? Any specific finding you want quoted is still open. -->
+<!-- TODO(Travis): Which scripts should a recruiter treat as the project, and which are scratch? Is chromosome 10 the system you want named? What was your part versus the lab's existing OpenMiChroM pipeline? Should the two text dumps stay in the public repo? Any specific finding you want quoted is still open. -->
 
-**[TODO: What is each break-point index? Which scripts are the project versus scratch? Is chromosome 10 the system to name? What was your part versus the lab pipeline? Should the two text dumps stay public? Any finding to quote?]**
+**[TODO: Which scripts are the project versus scratch? Is chromosome 10 the system to name? What was your part versus the lab pipeline? Should the two text dumps stay public? Any finding to quote?]**
